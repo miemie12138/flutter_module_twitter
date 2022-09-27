@@ -5,7 +5,7 @@ import 'package:flutter_base_pkg/widgets/unfocus_widget.dart';
 import 'package:provider/provider.dart';
 import 'package:twitter/home/release/release_post_viewmodel.dart';
 
-// import '../widgets/mult_imagepicker_widget.dart';
+import '../widgets/mult_imagepicker_widget.dart';
 import '../widgets/my_clip_circle_weight.dart';
 import '../widgets/post_dialog.dart';
 
@@ -104,16 +104,17 @@ class ReleasePostPage extends StatelessWidget {
                         },
                       ),
                     ),
-                    // Padding(
-                    //   padding: const EdgeInsets.all(15),
-                    //   child: MultImagePickerWidget(
-                    //     maxImages: 9,
-                    //     valueChanged: (value) {
-                    //       vm.images = value;
-                    //       vm.focusNode.unfocus();
-                    //     },
-                    //   ),
-                    // ),
+                    Padding(
+                      padding: const EdgeInsets.all(15),
+                      child: MultImagePickerWidget(
+                        maxImages: 9,
+                        valueChanged: (value) {
+                          vm.images = value;
+                          vm.focusNode.unfocus();
+                        },
+                        deleteChanged: (value) => {},
+                      ),
+                    ),
                   ],
                 ),
               ),

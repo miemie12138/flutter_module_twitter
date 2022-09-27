@@ -12,6 +12,7 @@ class ReportItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 110,
       color: Colors.white,
       padding: const EdgeInsets.all(15),
       child: Column(

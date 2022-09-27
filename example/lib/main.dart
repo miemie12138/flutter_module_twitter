@@ -27,6 +27,8 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      themeMode: ThemeMode.system,
+      darkTheme: MTheme.darkTheme(context),
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
@@ -38,6 +40,8 @@ class _MyAppState extends State<MyApp> {
         Locale('en', 'US'),
       ],
       theme: MTheme.lightTheme(context),
+      highContrastDarkTheme: ThemeData(),
+      highContrastTheme: ThemeData(),
       home: twitterHomePage,
     );
   }

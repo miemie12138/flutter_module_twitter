@@ -58,12 +58,12 @@ class CommentItem extends StatelessWidget {
                           children: [
                             GestureDetector(
                               behavior: HitTestBehavior.translucent,
+                              onTap: () {},
                               child: Image.asset(
                                 'assets/images/reply.png',
                                 width: 15,
                                 height: 15,
                               ),
-                              onTap: () {},
                             ),
                             Container(
                               margin: const EdgeInsets.only(left: 3),
@@ -101,9 +101,11 @@ class CommentItem extends StatelessWidget {
                   height: 0.5,
                   color: Color(0xfff7f7f7),
                 ),
-                Expanded(
-                  child: SliverList(
-                      delegate: SliverChildBuilderDelegate((content, index) {
+                ListView.builder(
+                  itemCount: ((model?.replyDetailList?.length) ?? 0) > 2 ? 2 : model?.replyDetailList?.length,
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) {
                     return GestureDetector(
                       behavior: HitTestBehavior.translucent,
                       onTap: () async {},
@@ -122,7 +124,7 @@ class CommentItem extends StatelessWidget {
                         ],
                       ),
                     );
-                  }, childCount: ((model?.replyDetailList?.length) ?? 0) > 2 ? 2 : model?.replyDetailList?.length)),
+                  },
                 ),
                 Visibility(
                     visible: (model?.replyDetailList?.length)! > 0,

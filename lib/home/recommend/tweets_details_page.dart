@@ -50,29 +50,35 @@ class TweetsDetailsPageView extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SliverList(
-                        delegate: SliverChildBuilderDelegate((content, index) {
-                      return GestureDetector(
-                        behavior: HitTestBehavior.translucent,
-                        onTap: () async {},
-                        child: Column(
-                          children: [
-                            CommentItem(
-                              model: vm.commentList?[index],
-                              id: id,
-                              refreshCallBack: () {
-                                vm.refreshData();
-                              },
+                    SliverToBoxAdapter(
+                      child: ListView.builder(
+                        itemCount: vm.commentList?.length ?? 0,
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemBuilder: (context, index) {
+                          return GestureDetector(
+                            behavior: HitTestBehavior.translucent,
+                            onTap: () async {},
+                            child: Column(
+                              children: [
+                                CommentItem(
+                                  model: vm.commentList?[index],
+                                  id: id,
+                                  refreshCallBack: () {
+                                    vm.refreshData();
+                                  },
+                                ),
+                                const Divider(
+                                  thickness: 0.5,
+                                  height: 0.5,
+                                  color: Color(0xfff7f7f7),
+                                )
+                              ],
                             ),
-                            const Divider(
-                              thickness: 0.5,
-                              height: 0.5,
-                              color: Color(0xfff7f7f7),
-                            )
-                          ],
-                        ),
-                      );
-                    }, childCount: vm.commentList?.length ?? 0)),
+                          );
+                        },
+                      ),
+                    ),
                   ],
                 ),
               ));

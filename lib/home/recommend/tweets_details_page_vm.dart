@@ -43,6 +43,7 @@ class TweetsDetailsPageViewModel extends BaseViewModel {
     });
     TwitterService.getCommentList({'id': id}).then((value) {
       commentList = value;
+      notifyListeners();
     });
   }
 

@@ -31,7 +31,7 @@ dependencies:
   #图片翻页
   image_gallery_saver: ^1.7.1
  # 图片选择
-  # wechat_assets_picker: ^6.2.3
+  wechat_assets_picker: ^8.1.1
   flutter_cache_manager: ^3.3.0
   
 dev_dependencies:
